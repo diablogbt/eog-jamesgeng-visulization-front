@@ -8,8 +8,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import Header from './components/Header';
 import Wrapper from './components/Wrapper';
 import NowWhat from './components/NowWhat';
+import {BrowserRouter, Route, Switch, Link} from 'react-router-dom';
 
-const store = createStore();
+
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -24,17 +25,51 @@ const theme = createMuiTheme({
   },
 });
 
+// const App = () => (
+//   <MuiThemeProvider theme={theme}>
+//     <CssBaseline />
+//     <Provider store={store}>
+//       <Wrapper>
+//         <Header />
+//         <NowWhat />
+//         <ToastContainer />
+//       </Wrapper>
+//     </Provider>
+//   </MuiThemeProvider>
+// );
+const store = createStore();
+
 const App = () => (
-  <MuiThemeProvider theme={theme}>
-    <CssBaseline />
+  
     <Provider store={store}>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/welcome">
+            <Wrapper>
+              <Header />
+              <NowWhat />
+              <ToastContainer />
+            </Wrapper>
+          </Route>
+          {/* <Route path="/nowwhat">
+          </Route> */}
+        </Switch>
+
       <Wrapper>
-        <Header />
-        <NowWhat />
-        <ToastContainer />
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/welcome">header</Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </Wrapper>
+      </BrowserRouter>
     </Provider>
-  </MuiThemeProvider>
+    
 );
+
 
 export default App;
