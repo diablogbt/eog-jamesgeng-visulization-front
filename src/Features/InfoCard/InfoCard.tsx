@@ -6,10 +6,6 @@ import {SubscriptionClient} from 'subscriptions-transport-ws';
 import { useSelector } from 'react-redux';
 import {IState} from '../../store';
 
-const subscriptionClient = new SubscriptionClient(
-    "http://react.eogresources.com/graphql",{
-    reconnect: true
-});
 
 const client = createClient({
     url: 'https://react.eogresources.com/graphql',
