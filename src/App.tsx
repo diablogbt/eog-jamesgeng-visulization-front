@@ -10,6 +10,8 @@ import Wrapper from './components/Wrapper';
 import NowWhat from './components/NowWhat';
 import {BrowserRouter, Route, Switch, Link} from 'react-router-dom';
 
+import ChartHead from './components/ChartHead';
+
 
 const theme = createMuiTheme({
   palette: {
@@ -40,9 +42,8 @@ const theme = createMuiTheme({
 const store = createStore();
 
 const App = () => (
-  
     <Provider store={store}>
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Switch>
           <Route path="/welcome">
             <Wrapper>
@@ -51,22 +52,26 @@ const App = () => (
               <ToastContainer />
             </Wrapper>
           </Route>
-          {/* <Route path="/nowwhat">
-          </Route> */}
+          <Route path="/charthead">
+            <ChartHead></ChartHead>
+          </Route>
         </Switch>
 
-      <Wrapper>
         <div>
           <nav>
             <ul>
               <li>
                 <Link to="/welcome">header</Link>
               </li>
+              <li>
+                <Link to="/charthead">charthead</Link>
+              </li>
             </ul>
           </nav>
         </div>
-      </Wrapper>
-      </BrowserRouter>
+      </BrowserRouter> */}
+      <ChartHead></ChartHead>
+      
     </Provider>
     
 );
