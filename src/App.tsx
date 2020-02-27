@@ -8,8 +8,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import Header from './components/Header';
 import Wrapper from './components/Wrapper';
 import NowWhat from './components/NowWhat';
+import {BrowserRouter, Route, Switch, Link} from 'react-router-dom';
 
-const store = createStore();
+import ChartHead from './components/ChartHead';
+
+
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -24,17 +27,54 @@ const theme = createMuiTheme({
   },
 });
 
+// const App = () => (
+//   <MuiThemeProvider theme={theme}>
+//     <CssBaseline />
+//     <Provider store={store}>
+//       <Wrapper>
+//         <Header />
+//         <NowWhat />
+//         <ToastContainer />
+//       </Wrapper>
+//     </Provider>
+//   </MuiThemeProvider>
+// );
+const store = createStore();
+
 const App = () => (
-  <MuiThemeProvider theme={theme}>
-    <CssBaseline />
     <Provider store={store}>
-      <Wrapper>
-        <Header />
-        <NowWhat />
-        <ToastContainer />
-      </Wrapper>
+      {/* <BrowserRouter>
+        <Switch>
+          <Route path="/welcome">
+            <Wrapper>
+              <Header />
+              <NowWhat />
+              <ToastContainer />
+            </Wrapper>
+          </Route>
+          <Route path="/charthead">
+            <ChartHead></ChartHead>
+          </Route>
+        </Switch>
+
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/welcome">header</Link>
+              </li>
+              <li>
+                <Link to="/charthead">charthead</Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </BrowserRouter> */}
+      <ChartHead></ChartHead>
+      
     </Provider>
-  </MuiThemeProvider>
+    
 );
+
 
 export default App;
